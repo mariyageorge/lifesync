@@ -82,8 +82,81 @@ $tasks_result = mysqli_query($conn, $tasks_sql);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+        
+
+:root {
+            --nude-100: #F5ECE5;
+            --nude-200: #E8D5C8;
+            --nude-300: #DBBFAE;
+            --nude-400: #C6A792;
+            --brown-primary: #8B4513;
+            --brown-hover: #A0522D;
+        }
+
+        .header {
+            width: 100%;
+            background: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--brown-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--brown-primary);
+            letter-spacing: 1px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logout-btn {
+            padding: 0.5rem 1.2rem;
+            background: white;
+            border: 2px solid var(--brown-primary);
+            color: var(--brown-primary);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: var(--brown-primary);
+            color: white;
+        }
+
+    
         body {
-            background-color: #f8f9fa;
+               background-color: var(--nude-100);
         }
         .container {
             max-width: 800px;
@@ -113,6 +186,22 @@ $tasks_result = mysqli_query($conn, $tasks_sql);
     </style>
 </head>
 <body>
+         <!-- Header -->
+         <header class="header">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <i class="fas fa-infinity"></i>
+            </div>
+            <span class="logo-text">LIFE-SYNC</span>
+        </div>
+        
+        <div class="header-right">
+            <span>Welcome, <?php echo htmlspecialchars($username); ?></span>
+            <a href="logout.php" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </header><br><br>
 <div class="container">
     <h1 class="mt-5 text-center">Todo List</h1>
     <form method="POST" class="mb-4 d-flex gap-2">
@@ -161,3 +250,5 @@ $tasks_result = mysqli_query($conn, $tasks_sql);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
